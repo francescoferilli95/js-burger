@@ -3,7 +3,7 @@
  *  TASK
  *  1. CALCULATE THE PRICE OF THE SELECTED BURGER WITH ADDS
  *  2. APPLY DISCOUNT IF NEEDED
- *  3. CREATE EVENT ON CLICK ON SPAN ADD 
+ *  3. CREATE EVENT ON CLICK ON SPAN "ADD" 
  * 
 /**/
 
@@ -14,7 +14,38 @@ var burgerName = document.getElementById('name');
 var ingredients = document.getElementsByClassName('ingredient-checkbox');
 var displayPrice = document.getElementById('price');
 var coupon = document.getElementById('coupon');
+var addBtn = document.getElementsByClassName('ingredient-add');
+
+// LIST OF ACCEPTED COUPONS
+
 var coupons = ['12354ABCDEF', '98767OIUYUY' , '64827PLAKFI'];
+
+
+
+
+
+/**
+ * 
+ * CREATING CLICK EVENT ON SPANN "ADD"
+ * 
+/**/
+
+for(var i = 0; i < addBtn.length; i++) {
+    var add = addBtn[i];
+
+    add.addEventListener('click', function(){
+        // REMINDER TO "THIS"
+        // console.log(this);
+        // console.log(this.previousElementSibling);
+
+        var thisCheckbox = this.previousElementSibling;
+        thisCheckbox.checked = ! thisCheckbox.checked;
+    });
+}
+
+
+
+
 
 /**
  * 
