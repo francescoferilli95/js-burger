@@ -13,8 +13,8 @@ var btn = document.getElementById('button');
 var burgerName = document.getElementById('name');
 var ingredients = document.getElementsByClassName('ingredient-checkbox');
 var displayPrice = document.getElementById('price');
-
-
+var coupon = document.getElementById('coupon');
+var coupons = ['12354ABCDEF', '98767OIUYUY' , '64827PLAKFI'];
 
 /**
  * 
@@ -55,6 +55,20 @@ btn.addEventListener('click', function(){
 
         // PRINT IN CONSOLE THE FULL PRICE
         // console.log(price);
+
+
+        // ADDING DISCOUNT TO FULL PRICE
+
+        var couponCode = coupon.value;
+        // console.log(couponCode);
+
+        if(coupons.includes(couponCode)) {
+            // console.log('You\'ve entered a valid Coupon Code!');
+
+            // COUPON = 10% DISCOUNT
+            price -= price * 0.1;
+        }
+
 
         // PRINT IN HTML THE FULL PRICE
         displayPrice.innerHTML = price.toFixed(2);
